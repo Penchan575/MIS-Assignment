@@ -1,0 +1,232 @@
+:root {
+  --primary-pink: #ff85a1;
+  --soft-pink: #fbb1bd;
+  --bg-pink: #ffe5ec;
+  --card-bg: #ffffff;
+  --text-dark: #4a3e3d;
+  --text-muted: #8c7a7b;
+  --shadow: 0 10px 30px rgba(255, 133, 161, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Prompt', sans-serif;
+}
+
+body {
+  background-color: var(--bg-pink);
+  background-image: radial-gradient(#ffb3c1 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Floating Kitty Decorative Elements */
+.kitty-corner {
+  position: fixed;
+  width: 110px;
+  z-index: 10;
+  filter: drop-shadow(0 4px 10px rgba(255, 133, 161, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.kitty-corner:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.float-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.float-right {
+  top: 20px;
+  right: 20px;
+  transform: scaleX(-1);
+}
+
+/* Quiz Card Container */
+.quiz-card {
+  background: var(--card-bg);
+  width: 100%;
+  max-width: 780px;
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: var(--shadow);
+  border: 3px solid #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.quiz-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px dashed #f7cad0;
+  padding-bottom: 20px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #ffe5ec;
+  color: var(--primary-pink);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.quiz-header h1 {
+  font-size: 26px;
+  color: #c9184a;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+/* Question Block */
+.question-block {
+  background-color: #fff0f3;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 25px;
+  border: 1px solid #ffccd5;
+}
+
+.question-number {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ff4d6d;
+  margin-bottom: 6px;
+}
+
+.question-text {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* Options */
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 2px solid #ffccd5;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 15px;
+}
+
+.option-label:hover {
+  border-color: var(--primary-pink);
+  background-color: #fff5f7;
+  transform: translateY(-2px);
+}
+
+.option-label input[type="radio"] {
+  accent-color: var(--primary-pink);
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Footer & Button */
+.quiz-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#submit-btn {
+  background: linear-gradient(135deg, #ff758f, #ff4d6d);
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(255, 77, 109, 0.35);
+  transition: all 0.3s ease;
+}
+
+#submit-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 22px rgba(255, 77, 109, 0.45);
+}
+
+/* Result Modal Box */
+.result-box {
+  margin-top: 25px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #fff0f3;
+  border: 3px solid var(--primary-pink);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.result-icon {
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+.result-box h2 {
+  color: #c9184a;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.result-box p {
+  color: var(--text-dark);
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: left;
+  white-space: pre-line;
+}
+
+.retry-btn {
+  margin-top: 20px;
+  background-color: #ffffff;
+  color: var(--primary-pink);
+  border: 2px solid var(--primary-pink);
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retry-btn:hover {
+  background-color: var(--primary-pink);
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
